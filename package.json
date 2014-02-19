@@ -1,6 +1,6 @@
 {
   "name": "bender-pool",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Create a connection pool based on bender",
   "author": "Maciej Małecki <me@mmalecki.com>",
   "scripts": {
