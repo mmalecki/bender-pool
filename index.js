@@ -4,8 +4,17 @@ module.exports = function (options) {
   var bender = options.bender;
   var connect = options.connect;
   var disconnect = options.disconnect;
+
+  if (!options ||
+      typeof options.connect !== 'function' ||
+      typeof options.disconnect !== 'function' ||
+      !options.bender) {
+    throw new Error('`options.connect`, `options.disconnect` and `options.bender` are required');
+  }
+
   var ee = new EE();
   var regs = [];
+  var conns = [];
 
   bender.on('online', function (reg) {
     regs.push(reg);
@@ -27,7 +36,7 @@ module.exports = function (options) {
     conn = conns[index];
 
     ee.emit('disconnecting', reg, conn);
-    disconnect(reg, function (err) {
+    disconnect(reg, conn, function (err) {
       if (err) {
         return;
       }
