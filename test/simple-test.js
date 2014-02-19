@@ -1,7 +1,7 @@
 var assert = require('assert');
 var cb = require('assert-called');
 var Bender = require('bender-crdt');
-var bender = new Bender({ ttl: 1000 });
+var bender = new Bender({ ttl: 1 });
 var createPool = require('../');
 
 var app = {
@@ -14,12 +14,12 @@ var app = {
 var c = { foo: 'bar' };
 
 function connect(reg, cb) {
-  assert.equal(reg, appReg, 'registration should be passed to connect handler');
+  assert.equal(reg.app, app.app, 'registration should be passed to connect handler');
   cb(null, c);
 }
 
 function disconnect(reg, conn, cb) {
-  assert.equal(reg, appReg, 'registration should be passed to disconnect handler');
+  assert.equal(reg.app, app.app, 'registration should be passed to disconnect handler');
   assert.equal(conn, c, 'pool item should be passed to disconnect handler');
 }
 
