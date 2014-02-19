@@ -4,7 +4,7 @@
   "description": "Create a connection pool based on bender",
   "author": "Maciej Małecki <me@mmalecki.com>",
   "scripts": {
-    "test": "node test/simple-test.js"
+    "test": "node test/simple-test.js && node test/api-test.js"
   },
   "devDependencies": {
     "assert-called": "~0.1.2-1",
