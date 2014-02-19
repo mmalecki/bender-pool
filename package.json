@@ -1,0 +1,13 @@
+{
+  "name": "bender-pool",
+  "version": "0.0.0",
+  "description": "Create a connection pool based on bender",
+  "author": "Maciej Małecki <me@mmalecki.com>",
+  "scripts": {
+    "test": "node test/simple-test.js"
+  },
+  "devDependencies": {
+    "assert-called": "~0.1.2-1",
+    "bender-crdt": "~0.2.2"
+  }
+}
